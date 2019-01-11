@@ -72,3 +72,6 @@ parameters:
 - description: Amount of threads
   name: CPU_THREADS
   value: "2"
+- description: Amount of sockets
+  name: CPU_SOCKETS
+  value: "2"
