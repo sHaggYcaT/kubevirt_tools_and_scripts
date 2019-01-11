@@ -9,7 +9,6 @@ spec:
   domain:
     cpu:
       dedicatedCpuPlacement: true
-      cpu: 2
     devices:
       disks:
       - disk:
@@ -21,6 +20,7 @@ spec:
     resources:
       requests:
         memory: 64M
+        cpu: 2
   volumes:
   - emptyDisk:
       capacity: 64M
