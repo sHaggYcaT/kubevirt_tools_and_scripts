@@ -31,6 +31,7 @@ objects:
         domain:
           cpu:
             cores: ${{CPU_CORES}}
+            sockets: ${{CPU_SOCKETS}}
           devices:
             disks:
             - disk:
@@ -67,3 +68,8 @@ parameters:
 - description: Amount of cores
   name: CPU_CORES
   value: "2"
+- description: Amount of sockets
+  name: CPU_SOCKETS
+  value: "2"
+
+

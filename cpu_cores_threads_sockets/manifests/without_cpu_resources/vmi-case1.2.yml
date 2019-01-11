@@ -3,8 +3,8 @@ apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstance
 metadata:
   labels:
-    special: vmi-case1.2.1
-  name: vmi-case1.2.1
+    special: vmi-case1.2
+  name: vmi-case1.2
 spec:
   domain:
     cpu:

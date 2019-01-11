@@ -31,6 +31,7 @@ objects:
         domain:
           cpu:
             cores: ${{CPU_CORES}}
+            threads: ${{CPU_THREADS}}
           devices:
             disks:
             - disk:
@@ -66,4 +67,7 @@ parameters:
   value: 1500Mi
 - description: Amount of cores
   name: CPU_CORES
+  value: "2"
+- description: Amount of threads
+  name: CPU_THREADS
   value: "2"

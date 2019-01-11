@@ -30,6 +30,8 @@ objects:
       spec:
         domain:
           cpu:
+            sockets: ${{CPU_SOCKETS}}
+            cores: ${{CPU_CORES}}
             threads: ${{CPU_THREADS}}
           devices:
             disks:
@@ -64,6 +66,9 @@ parameters:
 - description: Amount of memory
   name: MEMORY
   value: 1500Mi
+- description: Amount of cores
+  name: CPU_CORES
+  value: "2"
 - description: Amount of threads
   name: CPU_THREADS
   value: "2"
