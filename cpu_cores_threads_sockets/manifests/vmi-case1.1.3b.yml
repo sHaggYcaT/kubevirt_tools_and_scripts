@@ -3,8 +3,8 @@ apiVersion: kubevirt.io/v1alpha2
 kind: VirtualMachineInstance
 metadata:
   labels:
-    special: vmi-case1.1.2b
-    name: vmi-case1.1.2b
+    special: vmi-case1.1.3b
+    name: vmi-case1.1.3b
 spec:
   domain:
     cpu:
@@ -18,6 +18,8 @@ spec:
     machine:
       type: ""
     resources:
+      requests:
+        cpu: 2
       limits:
         cpu: 2
         memory: 64M
