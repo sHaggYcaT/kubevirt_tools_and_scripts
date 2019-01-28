@@ -49,7 +49,7 @@ objects:
         terminationGracePeriodSeconds: 0
         volumes:
         - containerDisk:
-            image: kubevirt/fedora-cloud-container-disk-demo
+            image: kubevirt/cirros-registry-disk-demo
           name: registryvolume
         - cloudInitNoCloud:
             userData: |-
