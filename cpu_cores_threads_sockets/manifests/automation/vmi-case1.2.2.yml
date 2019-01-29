@@ -1,5 +1,5 @@
 ---
-apiVersion: kubevirt.io/v1alpha2
+apiVersion: kubevirt.io/v1alpha3
 kind: VirtualMachineInstance
 metadata:
   labels:
@@ -11,8 +11,7 @@ spec:
       disks:
       - disk:
           bus: virtio
-        name: disk
-        volumeName: emptyD
+        name: emptyD
     machine:
       type: ""
     resources:
@@ -22,6 +21,6 @@ spec:
       limits:
         cpu: 2
   volumes:
-  - emptyDisk:
+  - name: emptyD
+    emptyDisk:
       capacity: 64M
-    name: emptyD
