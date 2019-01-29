@@ -25,5 +25,5 @@ spec:
         memory: 64M
   volumes:
   - name: emptyD
-  - emptyDisk:
+    emptyDisk:
       capacity: 64M
