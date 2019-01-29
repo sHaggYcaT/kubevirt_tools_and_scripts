@@ -59,4 +59,4 @@ parameters:
   name: NAME
 - description: Amount of memory
   name: MEMORY
-  value: 1500Mi
+  value: 256Mi
