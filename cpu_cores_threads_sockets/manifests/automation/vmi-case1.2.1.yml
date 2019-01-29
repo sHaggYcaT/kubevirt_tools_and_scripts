@@ -11,8 +11,7 @@ spec:
       disks:
       - disk:
           bus: virtio
-        name: disk
-        volumeName: emptyD
+        name: emptyD
     machine:
       type: ""
     resources:
