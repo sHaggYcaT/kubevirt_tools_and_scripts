@@ -20,6 +20,6 @@ spec:
         memory: 64M
         cpu: 2
   volumes:
-  - emptyDisk:
+  - name: emptyD
+    emptyDisk:
       capacity: 64M
-    name: emptyD
