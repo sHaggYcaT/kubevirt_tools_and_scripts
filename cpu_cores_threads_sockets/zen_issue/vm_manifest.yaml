@@ -1,0 +1,80 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "apiVersion": "kubevirt.io/v1alpha3",
+            "kind": "VirtualMachine",
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "kubevirt-vm": "vm-zen-issue",
+                    "kubevirt.io/os": "fedora27"
+                },
+                "name": "vm13-16"
+            },
+            "spec": {
+                "running": false,
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "kubevirt-vm": "vm-zen-issue",
+                            "kubevirt.io/os": "fedora27"
+                        }
+                    },
+                    "spec": {
+                        "domain": {
+                            "cpu": {
+                                "cores": 2,
+                                "sockets": 4,
+                                "threads": 3
+                            },
+                            "devices": {
+                                "disks": [
+                                    {
+                                        "disk": {
+                                            "bus": "virtio"
+                                        },
+                                        "name": "registryvolume"
+                                    },
+                                    {
+                                        "disk": {
+                                            "bus": "virtio"
+                                        },
+                                        "name": "cloudinitvolume"
+                                    }
+                                ]
+                            },
+                            "machine": {
+                                "type": ""
+                            },
+                            "resources": {
+                                "requests": {
+                                    "memory": "256Mi"
+                                }
+                            }
+                        },
+                        "terminationGracePeriodSeconds": 0,
+                        "volumes": [
+                            {
+                                "containerDisk": {
+                                    "image": "kubevirt/cirros-registry-disk-demo"
+                                },
+                                "name": "registryvolume"
+                            },
+                            {
+                                "cloudInitNoCloud": {
+                                    "userData": "#cloud-config\npassword: fedora\nchpasswd: { expire: False }"
+                                },
+                                "name": "cloudinitvolume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {}
+        }
+    ]
+}
