@@ -1,0 +1,158 @@
+<domain type='qemu' id='1'>
+  <name>kubevirt-demo_vm13-16</name>
+  <uuid>f661cbad-64aa-5364-9885-0f72662d087c</uuid>
+  <metadata>
+    <kubevirt xmlns="http://kubevirt.io">
+      <uid>57450817-2534-11e9-a46a-5254004bd97d</uid>
+      <graceperiod>
+        <deletionGracePeriodSeconds>0</deletionGracePeriodSeconds>
+      </graceperiod>
+    </kubevirt>
+  </metadata>
+  <memory unit='KiB'>262144</memory>
+  <currentMemory unit='KiB'>262144</currentMemory>
+  <vcpu placement='static'>24</vcpu>
+  <iothreads>1</iothreads>
+  <resource>
+    <partition>/machine</partition>
+  </resource>
+  <sysinfo type='smbios'>
+    <system>
+      <entry name='uuid'>f661cbad-64aa-5364-9885-0f72662d087c</entry>
+    </system>
+  </sysinfo>
+  <os>
+    <type arch='x86_64' machine='pc-q35-3.0'>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <cpu mode='custom' match='exact' check='full'>
+    <model fallback='forbid'>EPYC</model>
+    <vendor>AMD</vendor>
+    <topology sockets='4' cores='2' threads='3'/>
+    <feature policy='require' name='acpi'/>
+    <feature policy='require' name='ss'/>
+    <feature policy='require' name='hypervisor'/>
+    <feature policy='require' name='erms'/>
+    <feature policy='require' name='mpx'/>
+    <feature policy='require' name='pcommit'/>
+    <feature policy='require' name='clwb'/>
+    <feature policy='require' name='pku'/>
+    <feature policy='require' name='la57'/>
+    <feature policy='require' name='3dnowext'/>
+    <feature policy='require' name='3dnow'/>
+    <feature policy='disable' name='vme'/>
+    <feature policy='disable' name='fma'/>
+    <feature policy='disable' name='avx'/>
+    <feature policy='disable' name='f16c'/>
+    <feature policy='disable' name='rdrand'/>
+    <feature policy='disable' name='avx2'/>
+    <feature policy='disable' name='rdseed'/>
+    <feature policy='disable' name='sha-ni'/>
+    <feature policy='disable' name='xsavec'/>
+    <feature policy='disable' name='fxsr_opt'/>
+    <feature policy='disable' name='misalignsse'/>
+    <feature policy='disable' name='3dnowprefetch'/>
+    <feature policy='disable' name='osvw'/>
+    <feature policy='disable' name='topoext'/>
+  </cpu>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='raw' cache='none'/>
+      <source file='/var/run/kubevirt-ephemeral-disks/container-disk-data/kubevirt-demo/vm13-16/disk_registryvolume/disk-image.raw'/>
+      <backingStore/>
+      <target dev='vda' bus='virtio'/>
+      <alias name='ua-registryvolume'/>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x00' function='0x0'/>
+    </disk>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='raw' cache='none'/>
+      <source file='/var/run/kubevirt-ephemeral-disks/cloud-init-data/kubevirt-demo/vm13-16/noCloud.iso'/>
+      <backingStore/>
+      <target dev='vdb' bus='virtio'/>
+      <alias name='ua-cloudinitvolume'/>
+      <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
+    </disk>
+    <controller type='usb' index='0' model='none'>
+      <alias name='usb'/>
+    </controller>
+    <controller type='sata' index='0'>
+      <alias name='ide'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1f' function='0x2'/>
+    </controller>
+    <controller type='pci' index='0' model='pcie-root'>
+      <alias name='pcie.0'/>
+    </controller>
+    <controller type='virtio-serial' index='0'>
+      <alias name='virtio-serial0'/>
+      <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+    </controller>
+    <controller type='pci' index='1' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='1' port='0x10'/>
+      <alias name='pci.1'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0' multifunction='on'/>
+    </controller>
+    <controller type='pci' index='2' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='2' port='0x11'/>
+      <alias name='pci.2'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x1'/>
+    </controller>
+    <controller type='pci' index='3' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='3' port='0x12'/>
+      <alias name='pci.3'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x2'/>
+    </controller>
+    <controller type='pci' index='4' model='pcie-root-port'>
+      <model name='pcie-root-port'/>
+      <target chassis='4' port='0x13'/>
+      <alias name='pci.4'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x3'/>
+    </controller>
+    <serial type='unix'>
+      <source mode='bind' path='/var/run/kubevirt-private/57450817-2534-11e9-a46a-5254004bd97d/virt-serial0'/>
+      <target type='isa-serial' port='0'>
+        <model name='isa-serial'/>
+      </target>
+      <alias name='serial0'/>
+    </serial>
+    <console type='unix'>
+      <source mode='bind' path='/var/run/kubevirt-private/57450817-2534-11e9-a46a-5254004bd97d/virt-serial0'/>
+      <target type='serial' port='0'/>
+      <alias name='serial0'/>
+    </console>
+    <channel type='unix'>
+      <source mode='bind' path='/var/lib/libvirt/qemu/channel/target/domain-1-kubevirt-demo_vm13-1/org.qemu.guest_agent.0'/>
+      <target type='virtio' name='org.qemu.guest_agent.0' state='disconnected'/>
+      <alias name='channel0'/>
+      <address type='virtio-serial' controller='0' bus='0' port='1'/>
+    </channel>
+    <input type='mouse' bus='ps2'>
+      <alias name='input0'/>
+    </input>
+    <input type='keyboard' bus='ps2'>
+      <alias name='input1'/>
+    </input>
+    <graphics type='vnc' socket='/var/run/kubevirt-private/57450817-2534-11e9-a46a-5254004bd97d/virt-vnc'>
+      <listen type='socket' socket='/var/run/kubevirt-private/57450817-2534-11e9-a46a-5254004bd97d/virt-vnc'/>
+    </graphics>
+    <video>
+      <model type='vga' vram='16384' heads='1' primary='yes'/>
+      <alias name='video0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
+    </video>
+    <memballoon model='none'/>
+  </devices>
+  <seclabel type='dynamic' model='dac' relabel='yes'>
+    <label>+107:+107</label>
+    <imagelabel>+107:+107</imagelabel>
+  </seclabel>
+</domain>
+
+
