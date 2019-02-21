@@ -1,0 +1,4 @@
+
+type MyResources struct {
+	Resources   map[string]string `yaml:"resources"`
+} 
